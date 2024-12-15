@@ -36,7 +36,7 @@ if(process.eventNames.NODE_ENV==="production"){
 
   app.get("*", (req, res) => {
 
-    res.sendFile(path.join(__dirname, "../frontend/MeloChat","dist", "index.html"));
+    res.sendFile(path.join(__dirname, "../frontend","MeloChat", "dist", "index.html"));
 
     
   })
