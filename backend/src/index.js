@@ -11,6 +11,7 @@ import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import { app , server} from "./lib/socket.js";
 
+
 dotenv.config();
 
 
@@ -29,16 +30,14 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-if(process.eventNames.NODE_ENV==="production"){
-  app.use(express.static(path.join(__dirname, "../frontend/MeloChat/dist")));
+if (process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname, "../frontend/melochat/dist")));
 
 
 
   app.get("*", (req, res) => {
 
-    res.sendFile(path.join(__dirname, "../frontend/MeloChat","dist", "index.html"));
-
-    
+    res.sendFile(path.join(__dirname, "../frontend", "melochat","dist", "index.html"));
   })
 }
 
